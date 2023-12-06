@@ -1,37 +1,42 @@
 import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
+import OpenAI from "openai";
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const OPENAI_API_KEY = "sk-...";
-
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
+const port = process.env.PORT || 5000;
+
 app.post("/chatbot", async (req, res) => {
-  const userMessage = req.body.message;
-
+  const userMessage = req.body.prompt;
+  console.error("User message:", userMessage);
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [],
-      temperature: 0.7,
-      max_tokens: 64,
-      top_p: 1,
-    });
+    if (!userMessage) {
+      throw new Error("No prompt was provided");
+    }
+    const response = await openai.chat.completions
+      .create({
+        messages: [{ role: "user", content: userMessage }],
+        model: "gpt-3.5-turbo",
+      })
+      .asResponse();
 
-    const botResponse = response.data.choices[0].text.trim();
-    res.json({ message: botResponse });
+    const completion = response.data.choices[0].text.trim();
+    res.status(200).json({ success: true, message: completion });
   } catch (error) {
-    console.error("Error communicating with OpenAI:", error);
-    res.status(500).json({ message: "Error communicating with OpenAI" });
+    console.error("Error:", error);
+    res.status(500).json({ success: false, message: "An error occurred" });
   }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

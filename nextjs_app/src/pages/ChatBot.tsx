@@ -34,7 +34,7 @@ const ChatBot = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ prompt: text }), // 'message' を 'prompt' に変更
       });
 
       const data = await response.json();
