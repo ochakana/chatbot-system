@@ -1,0 +1,21 @@
+{
+	"name": "express_app",
+	"dockerComposeFile": "../../docker-compose.yml",
+	"service": "express_app",
+	"workspaceFolder": "/app/express_app",
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "terminal.integrated.shell.linux": "/bin/bash",
+		  "editor.formatOnSave": true,
+		  "editor.tabSize": 2
+		},
+		"extensions": [
+			"dbaeumer.vscode-eslint",
+			"ms-azuretools.vscode-docker",
+			"humao.rest-client",
+			"esbenp.prettier-vscode"
+		]
+	  }
+	}
+  }

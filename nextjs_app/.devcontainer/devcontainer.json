@@ -1,0 +1,23 @@
+{
+	"name": "nextjs_app",
+	"dockerComposeFile": "../../docker-compose.yml",
+	"service": "nextjs_app",
+	"workspaceFolder": "/app/nextjs_app",
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "terminal.integrated.shell.linux": "/bin/bash",
+		  "editor.formatOnSave": true,
+		  "editor.tabSize": 2,
+		  "prettier.endOfLine": "lf"
+		},
+		"extensions": [
+			"dbaeumer.vscode-eslint",
+			"syler.sass-indented",
+			"oderwat.indent-rainbow",
+			"vscode-icons-team.vscode-icons",
+			"esbenp.prettier-vscode"
+		]
+	  }
+	}
+  }

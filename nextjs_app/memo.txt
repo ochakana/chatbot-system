@@ -1,0 +1,6 @@
+npx create-next-app@latest
+
+hot reload
+`"scripts": {
+    "dev": "WATCHPACK_POLLING=true next dev",
+}`

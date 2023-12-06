@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nextjs_app:
+    build:
+      context: ./nextjs_app
+      dockerfile: Dockerfile
+    volumes:
+      - ./nextjs_app:/app/nextjs_app
+      - /app/nextjs_app/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  express_app:
+    build:
+      context: ./express_app
+      dockerfile: Dockerfile
+    volumes:
+      - ./express_app:/app/express_app
+      - /app/express_app/node_modules
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    volumes:
+      - ./mongodb_data:/data/db
+    ports:
+      - 27017:27017
