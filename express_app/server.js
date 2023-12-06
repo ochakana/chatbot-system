@@ -1,15 +1,3 @@
-// const express = require('express');
-// const app = express();
-// const port = 5000;
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World from Express.js!');
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
-
 import cors from "cors";
 import express from "express";
 
@@ -17,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "sk-...";
 
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
