@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import InputTextField from "@/components/text/InputTextField";
 import Avatar from "@/components/image/Avater";
+import { useChat } from "@/app/context/ChatContext";
 import "@/styles/chatbot.scss";
 
 interface Message {
@@ -18,7 +19,7 @@ interface Message {
 }
 
 const ChatBot = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { messages, setMessages } = useChat();
   const [sender, setSender] = useState("");
 
   const getFormattedTime = () => {
