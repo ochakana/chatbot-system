@@ -27,12 +27,19 @@ app.post("/chatbot", async (req, res) => {
         messages: [{ role: "user", content: userMessage }],
         model: "gpt-3.5-turbo",
         temperature: 0.7,
-        max_tokens: 64,
+        max_tokens: 128,
         top_p: 1,
       })
       .asResponse();
+    const jsonResponse = await response.json();
+    console.log("Response:", jsonResponse);
 
-    const completion = response.data.choices[0].text.trim();
+    if (!jsonResponse.choices || jsonResponse.choices.length === 0) {
+      throw new Error("No choices in response");
+    }
+
+    const completion = jsonResponse.choices[0].message.content.trim();
+
     res.status(200).json({ success: true, message: completion });
   } catch (error) {
     console.error("Error:", error);

@@ -9,15 +9,11 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="text-center">
       <h1>Welcome to Homepage</h1>
       <p>いらっしゃいませー</p>
 
-      {/* <Dropdown /> */}
-
       <Button href="/ChatBot " text="ChatBotページへ" />
-      {/* <Chatbot /> */}
-      {/* <About parentData={aboutData} onDataFromAbout={handleDataFromAbout} /> */}
     </div>
   );
 };

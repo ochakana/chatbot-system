@@ -1,0 +1,14 @@
+.img-style {
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.message-container.outgoing {
+  flex-direction: row-reverse;
+}

@@ -1,0 +1,21 @@
+header {
+  background-color: var(--header-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  padding-right: 5rem;
+}
+
+.header-home-icon-container {
+  flex: none;
+  padding: 1rem;
+}
+
+.header-text-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

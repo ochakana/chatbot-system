@@ -1,16 +1,26 @@
+html,
+body,
+#__next {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .main-container {
-  display: grid;
-  grid-template-rows: 10vh 80vh 10vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 header {
-  background-color: red;
+  flex: 1; /* 全体の20% */
 }
 
 main {
-  background-color: green;
+  flex: 7; /* 残りの70% */
 }
 
 footer {
-  background-color: blue;
+  flex: 1; /* 全体の10% */
 }
