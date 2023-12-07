@@ -16,7 +16,7 @@ COPY . .
 EXPOSE 5000
 
 # アプリケーションを起動
-# CMD ["yarn", "start"]
+CMD ["yarn", "start"]
 
 # デバッグ
-CMD [ "sleep", "infinity" ]
+# CMD [ "sleep", "infinity" ]
