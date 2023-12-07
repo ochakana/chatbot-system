@@ -16,7 +16,7 @@ const ChatBot = () => {
     },
   ]);
 
-  const handleSend = async (text: string) => {
+  const sendMessage = async (text: string) => {
     // ユーザーのメッセージを追加
     const newMessage = {
       message: text,
@@ -25,8 +25,6 @@ const ChatBot = () => {
     };
     setMessages([...messages, newMessage]);
 
-    // ChatBot.tsx の handleSend 関数内
-
     // OpenAIにリクエストを送信
     try {
       const response = await fetch("http://localhost:5000/chatbot", {
@@ -34,7 +32,7 @@ const ChatBot = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt: text }), // 'message' を 'prompt' に変更
+        body: JSON.stringify({ message: text }),
       });
 
       const data = await response.json();
@@ -66,7 +64,7 @@ const ChatBot = () => {
               />
             ))}
           </MessageList>
-          <MessageInput placeholder="Type message here" onSend={handleSend} />
+          <MessageInput placeholder="Type message here" onSend={sendMessage} />
         </ChatContainer>
       </MainContainer>
     </div>

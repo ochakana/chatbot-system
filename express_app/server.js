@@ -16,16 +16,19 @@ const openai = new OpenAI({
 const port = process.env.PORT || 5000;
 
 app.post("/chatbot", async (req, res) => {
-  const userMessage = req.body.prompt;
-  console.error("User message:", userMessage);
+  const userMessage = req.body.message;
+  console.log("User message:", userMessage);
   try {
     if (!userMessage) {
-      throw new Error("No prompt was provided");
+      throw new Error("No message was provided");
     }
     const response = await openai.chat.completions
       .create({
         messages: [{ role: "user", content: userMessage }],
         model: "gpt-3.5-turbo",
+        temperature: 0.7,
+        max_tokens: 64,
+        top_p: 1,
       })
       .asResponse();
 
