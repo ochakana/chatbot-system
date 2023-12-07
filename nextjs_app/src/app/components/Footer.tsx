@@ -4,7 +4,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer>
-      <small>&copy; 2023 著作権者</small>
+      <small>&copy; 2023 Copyright</small>
     </footer>
   );
 };

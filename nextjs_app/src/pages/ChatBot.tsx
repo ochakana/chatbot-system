@@ -1,4 +1,7 @@
-import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import { useChat } from "@/app/context/ChatContext";
+import Avatar from "@/components/image/Avater";
+import InputTextField from "@/components/text/InputTextField";
+import "@/styles/chatbot.scss";
 import {
   ChatContainer,
   MainContainer,
@@ -6,11 +9,7 @@ import {
   MessageInput,
   MessageList,
 } from "@chatscope/chat-ui-kit-react";
-import { useState } from "react";
-import InputTextField from "@/components/text/InputTextField";
-import Avatar from "@/components/image/Avater";
-import { useChat } from "@/app/context/ChatContext";
-import "@/styles/chatbot.scss";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
 interface Message {
   message: string;
@@ -19,8 +18,7 @@ interface Message {
 }
 
 const ChatBot = () => {
-  const { messages, setMessages } = useChat();
-  const [sender, setSender] = useState("");
+  const { messages, setMessages, sender, setSender } = useChat();
 
   const getFormattedTime = () => {
     const now = new Date();
@@ -58,13 +56,16 @@ const ChatBot = () => {
   };
 
   return (
-    <div style={{ position: "relative", height: "100%" }}>
-      <span style={{ paddingLeft: "10px" }}>お名前をどうぞ：</span>
-      <InputTextField
-        value={sender}
-        onChange={setSender}
-        placeholder="Your name"
-      />
+    <div className="chat-bot-container">
+      <div className="name-input-conteiner">
+        <p>お名前をどうぞ：</p>
+        <InputTextField
+          value={sender}
+          onChange={setSender}
+          placeholder="Your name"
+        />
+      </div>
+
       <MainContainer>
         <ChatContainer>
           <MessageList>

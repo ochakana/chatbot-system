@@ -10,8 +10,7 @@ const HomePage = () => {
 
   return (
     <div className="text-center">
-      <h1>Welcome to Homepage</h1>
-      <p>いらっしゃいませー</p>
+      <h1>いらっしゃいませー!</h1>
 
       <Button href="/ChatBot " text="ChatBotページへ" />
     </div>

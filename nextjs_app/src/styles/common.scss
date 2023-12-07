@@ -11,16 +11,21 @@ body,
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 header {
+  position: relative;
   flex: 1; /* 全体の20% */
+
 }
 
 main {
+  position: relative;
   flex: 7; /* 残りの70% */
 }
 
 footer {
+  position: relative;
   flex: 1; /* 全体の10% */
 }
