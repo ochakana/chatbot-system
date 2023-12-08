@@ -20,7 +20,7 @@ RUN yarn build
 EXPOSE 3000
 
 # アプリケーションを起動
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]
 
 
 # デバッグ
