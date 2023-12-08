@@ -1,3 +1,4 @@
+# ベースイメージを指定
 FROM node:18.17.0
 
 # 作業ディレクトリを設定
@@ -12,11 +13,15 @@ RUN yarn install
 # アプリケーションのソースコードをコピー
 COPY . .
 
+# プロダクション用のビルドを実行
+RUN yarn build
+
 # ポート3000を公開
 EXPOSE 3000
 
 # アプリケーションを起動
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]
+
 
 # デバッグ
 # CMD [ "sleep", "infinity" ]
