@@ -1,8 +1,8 @@
 /mongodb_data
-/express_app/node_modules
+/expressjs_app/node_modules
 /nextjs_app/node_modules
-/express_app/.vscode
+/expressjs_app/.vscode
 /nextjs_app/.vscode
 /nextjs_app/.next
-/express_app/.env
+/expressjs_app/.env
 
