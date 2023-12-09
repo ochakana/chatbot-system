@@ -1,8 +1,8 @@
 {
-	"name": "express_app",
+	"name": "expressjs_app",
 	"dockerComposeFile": "../../docker-compose.yml",
-	"service": "express_app",
-	"workspaceFolder": "/app/express_app",
+	"service": "expressjs_app",
+	"workspaceFolder": "/app/expressjs_app",
 	"customizations": {
 	  "vscode": {
 		"settings": {

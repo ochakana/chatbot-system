@@ -1,6 +1,6 @@
 import cors from "cors";
 import dotenv from "dotenv";
-import express from "express";
+import express, { Request, Response } from "express";
 import OpenAI from "openai";
 
 dotenv.config();
@@ -10,12 +10,20 @@ app.use(express.json());
 app.use(cors());
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY as string,
 });
 
 const port = process.env.PORT || 5000;
 
-app.post("/chatbot", async (req, res) => {
+interface OpenAIResponse {
+  choices: {
+    message: {
+      content: string;
+    };
+  }[];
+}
+
+app.post("/chatbot", async (req: Request, res: Response) => {
   const userMessage = req.body.message;
   console.log("User message:", userMessage);
   try {
@@ -31,7 +39,9 @@ app.post("/chatbot", async (req, res) => {
         top_p: 1,
       })
       .asResponse();
-    const jsonResponse = await response.json();
+
+    // 応答の型アサーションを使用
+    const jsonResponse = (await response.json()) as OpenAIResponse;
     console.log("Response:", jsonResponse);
 
     if (!jsonResponse.choices || jsonResponse.choices.length === 0) {

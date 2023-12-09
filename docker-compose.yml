@@ -12,13 +12,14 @@ services:
     depends_on:
       - db
 
-  express_app:
+  expressjs_app:
     build:
-      context: ./express_app
+      context: ./expressjs_app
       dockerfile: Dockerfile
     volumes:
-      - ./express_app:/app/express_app
-      - /app/express_app/node_modules
+      - ./expressjs_app:/app/expressjs_app
+      - ./expressjs_app/dist:/app/expressjs_app/dist
+      - /app/expressjs_app/node_modules
     ports:
       - 5000:5000
     depends_on:
