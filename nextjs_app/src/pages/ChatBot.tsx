@@ -47,8 +47,7 @@ const ChatBot = () => {
           body: JSON.stringify({ message: text }),
         }
       );
-      console.log(response);
-      console.log("API Base URL:", process.env.NEXT_PUBLIC_API_BASE_URL);
+
       const data = await response.json();
       // OpenAIの返答を追加
       setMessages((messages) => [
