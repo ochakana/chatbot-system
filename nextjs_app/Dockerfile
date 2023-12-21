@@ -22,6 +22,5 @@ EXPOSE 3000
 # アプリケーションを起動
 CMD ["yarn", "start"]
 
-
 # デバッグ
 # CMD [ "sleep", "infinity" ]
