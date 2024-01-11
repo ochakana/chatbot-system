@@ -23,7 +23,7 @@ app.use((0, cors_1.default)());
 const openai = new openai_1.default({
     apiKey: process.env.OPENAI_API_KEY,
 });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5020;
 app.post("/chatbot", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userMessage = req.body.message;
     console.log("User message:", userMessage);

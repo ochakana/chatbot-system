@@ -17,7 +17,7 @@ COPY . .
 RUN yarn build
 
 # ポート3000を公開
-EXPOSE 3000
+EXPOSE 3020
 
 # アプリケーションを起動
 CMD ["yarn", "start"]

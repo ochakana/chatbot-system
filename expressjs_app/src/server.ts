@@ -13,7 +13,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY as string,
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5020;
 
 interface OpenAIResponse {
   choices: {

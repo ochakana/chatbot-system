@@ -15,8 +15,8 @@ COPY . .
 # TypeScriptのビルド
 RUN yarn build
 
-# ポート5000を公開
-EXPOSE 5000
+# ポート5020を公開
+EXPOSE 5020
 
 # アプリケーションを起動
 CMD ["yarn", "start"]

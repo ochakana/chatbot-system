@@ -8,7 +8,7 @@ services:
       - ./nextjs_app/build:/app/nextjs_app/build
       - /app/nextjs_app/node_modules
     ports:
-      - 3000:3000
+      - 3020:3020
     depends_on:
       - db
 
@@ -21,7 +21,7 @@ services:
       - ./expressjs_app/dist:/app/expressjs_app/dist
       - /app/expressjs_app/node_modules
     ports:
-      - 5000:5000
+      - 5020:5020
     depends_on:
       - db
 
